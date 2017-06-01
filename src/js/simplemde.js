@@ -10,6 +10,9 @@ require("codemirror/addon/display/placeholder.js");
 require("codemirror/addon/selection/mark-selection.js");
 require("codemirror/mode/gfm/gfm.js");
 require("codemirror/mode/xml/xml.js");
+require("codemirror/mode/javascript/javascript.js");
+require("codemirror/addon/hint/javascript-hint.js");
+require("codemirror/addon/hint/show-hint.js");
 var CodeMirrorSpellChecker = require("codemirror-spell-checker");
 var marked = require("marked");
 
@@ -1526,6 +1529,41 @@ SimpleMDE.prototype.render = function(el) {
 		mode.name = "gfm";
 		mode.gitHubSpice = false;
 	}
+
+	// Registering a new command to showMentions widget
+	CodeMirror.commands.showMentions = function (cm) {
+		CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint);
+	};
+
+	// Registering a new command to hideMentions widget
+	CodeMirror.commands.hideMentions = function (cm) {
+		cm.state.completionActive.close();
+	};
+
+	// This is a hint function with name as 'mentionsHint'. This function gets the list to be displayed in the mentions widget and performs filtering.	
+	CodeMirror.registerHelper("hint", "mentionsHint", function (editor) {
+		var dictionary = options.hintList ? options.hintList : [];
+		var cur = editor.getCursor(),
+			curLine = editor.getLine(cur.line);
+		var start = cur.ch,
+			end = start;
+		while (end < curLine.length && /[\w$]+/.test(curLine.charAt(end))) {
+			++end;
+		}
+		while (start && /[\w$]+/.test(curLine.charAt(start - 1))) {
+			--start;
+		}
+		// var curWord = start != end && curLine.slice(start, end);
+		var curWord = curLine.slice(start, end);
+		var regex = new RegExp("^" + curWord, "i");
+		return {
+			list: dictionary.filter(function (item) {
+				return item.match(regex);
+			}).sort(),
+			from: CodeMirror.Pos(cur.line, start),
+			to: CodeMirror.Pos(cur.line, end)
+		};
+	});
 
 	this.codemirror = CodeMirror.fromTextArea(el, {
 		mode: mode,
