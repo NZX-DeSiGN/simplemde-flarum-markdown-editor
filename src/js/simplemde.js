@@ -1553,7 +1553,6 @@ SimpleMDE.prototype.render = function(el) {
 		while (start && /[\w$]+/.test(curLine.charAt(start - 1))) {
 			--start;
 		}
-		// var curWord = start != end && curLine.slice(start, end);
 		var curWord = curLine.slice(start, end);
 		var regex = new RegExp("^" + curWord, "i");
 		return {
