@@ -1542,7 +1542,7 @@ SimpleMDE.prototype.render = function(el) {
 
 	// This is a hint function with name as 'mentionsHint'. This function gets the list to be displayed in the mentions widget and performs filtering.	
 	CodeMirror.registerHelper("hint", "mentionsHint", function (editor) {
-		var dictionary = options.hintList ? options.hintList : [];
+		var dictionary = editor.options.hintList ? editor.options.hintList : [];
 		var cur = editor.getCursor(),
 			curLine = editor.getLine(cur.line);
 		var start = cur.ch,
