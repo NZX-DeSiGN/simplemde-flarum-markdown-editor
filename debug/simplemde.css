@@ -1,5 +1,5 @@
 /**
- * simplemde v1.11.2
+ * simplemde v1.11.5
  * Copyright Next Step Webs, Inc.
  * @link https://github.com/NextStepWebs/simplemde-markdown-editor
  * @license MIT
@@ -94,8 +94,14 @@
 
 .cm-tab { display: inline-block; text-decoration: inherit; }
 
+.CodeMirror-rulers {
+  position: absolute;
+  left: 0; right: 0; top: -50px; bottom: -20px;
+  overflow: hidden;
+}
 .CodeMirror-ruler {
   border-left: 1px solid #ccc;
+  top: 0; bottom: 0;
   position: absolute;
 }
 
@@ -293,7 +299,10 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   visibility: hidden;
 }
 
-.CodeMirror-cursor { position: absolute; }
+.CodeMirror-cursor {
+  position: absolute;
+  pointer-events: none;
+}
 .CodeMirror-measure pre { position: static; }
 
 div.CodeMirror-cursors {
@@ -337,7 +346,6 @@ div.CodeMirror-dragcursors {
 span.CodeMirror-selectedtext { background: none; }
 
 .CodeMirror {
-    box-sizing: border-box;
     height: auto;
     min-height: 300px;
     border: 1px solid #ddd;
@@ -346,15 +354,6 @@ span.CodeMirror-selectedtext { background: none; }
     padding: 10px;
     font: inherit;
     z-index: 1;
-    word-wrap: break-word;
-}
-
-.CodeMirror-scroll {
-    min-height: 300px
-}
-
-.CodeMirror-scroll {
-    min-height: 300px
 }
 
 .CodeMirror-scroll {
@@ -463,9 +462,7 @@ span.CodeMirror-selectedtext { background: none; }
     padding: 0;
 }
 
-.editor-toolbar a,
-.editor-toolbar button {
-    background: transparent;
+.editor-toolbar a {
     display: inline-block;
     text-align: center;
     text-decoration: none!important;
@@ -473,22 +470,18 @@ span.CodeMirror-selectedtext { background: none; }
     width: 30px;
     height: 30px;
     margin: 0;
-    padding: 0;
     border: 1px solid transparent;
     border-radius: 3px;
     cursor: pointer;
 }
 
 .editor-toolbar a.active,
-.editor-toolbar a:hover,
-.editor-toolbar button.active,
-.editor-toolbar button:hover {
+.editor-toolbar a:hover {
     background: #fcfcfc;
     border-color: #95a5a6;
 }
 
-.editor-toolbar a:before,
-.editor-toolbar button:before {
+.editor-toolbar a:before {
     line-height: 30px
 }
 
@@ -595,7 +588,6 @@ span.CodeMirror-selectedtext { background: none; }
     display: none;
     box-sizing: border-box;
     border: 1px solid #ddd;
-    word-wrap: break-word;
 }
 
 .editor-preview-active-side {
