@@ -214,8 +214,7 @@ function toggleFullScreen(editor) {
 
 
 	// Update toolbar button
-	if(editor.toolbarElements.fullscreen) {
-		var toolbarButton = editor.toolbarElements.fullscreen;
+	var toolbarButton = editor.toolbarElements.fullscreen;
 
 	if(!/active/.test(toolbarButton.className)) {
 		toolbarButton.className += " active";
@@ -1484,32 +1483,32 @@ SimpleMDE.prototype.render = function(el) {
 	}
 
 	// Registering a new command to showMentions widget
-	CodeMirror.commands.showMentions = function(cm) {
+	CodeMirror.commands.showMentions = function (cm) {
 		CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint);
 	};
 
 	// Registering a new command to hideMentions widget
-	CodeMirror.commands.hideMentions = function(cm) {
+	CodeMirror.commands.hideMentions = function (cm) {
 		cm.state.completionActive.close();
 	};
 
 	// This is a hint function with name as 'mentionsHint'. This function gets the list to be displayed in the mentions widget and performs filtering.	
-	CodeMirror.registerHelper("hint", "mentionsHint", function(editor) {
+	CodeMirror.registerHelper("hint", "mentionsHint", function (editor) {
 		var dictionary = editor.options.hintList ? editor.options.hintList : [];
 		var cur = editor.getCursor(),
 			curLine = editor.getLine(cur.line);
 		var start = cur.ch,
 			end = start;
-		while(end < curLine.length && /[\w$]+/.test(curLine.charAt(end))) {
+		while (end < curLine.length && /[\w$]+/.test(curLine.charAt(end))) {
 			++end;
 		}
-		while(start && /[\w$]+/.test(curLine.charAt(start - 1))) {
+		while (start && /[\w$]+/.test(curLine.charAt(start - 1))) {
 			--start;
 		}
 		var curWord = curLine.slice(start, end);
 		var regex = new RegExp("^" + curWord, "i");
 		return {
-			list: dictionary.filter(function(item) {
+			list: dictionary.filter(function (item) {
 				return item.match(regex);
 			}).sort(),
 			from: CodeMirror.Pos(cur.line, start),
