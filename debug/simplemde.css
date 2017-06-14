@@ -357,6 +357,10 @@ span.CodeMirror-selectedtext { background: none; }
     min-height: 300px
 }
 
+.CodeMirror-scroll {
+    min-height: 300px
+}
+
 .CodeMirror-fullscreen {
     background: #fff;
     position: fixed !important;
