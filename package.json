@@ -32,7 +32,7 @@
     "gulp": "*",
     "gulp-concat": "*",
     "gulp-debug": "*",
-    "gulp-eslint": "*",
+    "gulp-eslint": "3.0.1",
     "gulp-header": "*",
     "gulp-jsbeautifier": "*",
     "gulp-clean-css": "*",
