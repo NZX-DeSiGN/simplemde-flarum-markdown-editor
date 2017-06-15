@@ -1489,7 +1489,9 @@ SimpleMDE.prototype.render = function(el) {
 
 	// Registering a new command to hideMentions widget
 	CodeMirror.commands.hideMentions = function(cm) {
-		cm.state.completionActive.close();
+		if(cm.state.completionActive) {
+			cm.state.completionActive.close();
+		}
 	};
 
 	// This is a hint function with name as 'mentionsHint'. This function gets the list to be displayed in the mentions widget and performs filtering.	
