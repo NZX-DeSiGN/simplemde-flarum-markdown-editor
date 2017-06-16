@@ -18484,11 +18484,7 @@ SimpleMDE.prototype.render = function(el) {
 
 	// Registering a new command to showMentions widget
 	CodeMirror.commands.showMentions = function(cm) {
-		if(cm.state.completionActive) {
-			cm.state.completionActive.update(false);
-		} else {
-			CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint);
-		}
+		CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint);
 	};
 
 	// Registering a new command to hideMentions widget
@@ -18520,9 +18516,6 @@ SimpleMDE.prototype.render = function(el) {
 			from: CodeMirror.Pos(cur.line, start),
 			to: CodeMirror.Pos(cur.line, end)
 		};
-		CodeMirror.on(result, "pick", function(completion) {
-			console.log(completion);
-		});
 		return result;
 	});
 
