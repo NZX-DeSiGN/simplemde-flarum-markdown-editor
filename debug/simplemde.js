@@ -2313,7 +2313,7 @@ module.exports = CodeMirrorSpellChecker;
     if (!completion.options.hint) return;
 
     CodeMirror.signal(this, "startCompletion", this);
-    completion.update(true);
+    completion.update(false);
   });
 
   function Completion(cm, options) {
@@ -18509,13 +18509,14 @@ SimpleMDE.prototype.render = function(el) {
 		}
 		var curWord = curLine.slice(start, end);
 		var regex = new RegExp("^" + curWord, "i");
-		return {
+		var result = {
 			list: dictionary.filter(function(item) {
 				return item.match(regex);
 			}).sort(),
 			from: CodeMirror.Pos(cur.line, start),
 			to: CodeMirror.Pos(cur.line, end)
 		};
+		return result;
 	});
 
 	this.codemirror = CodeMirror.fromTextArea(el, {
