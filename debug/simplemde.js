@@ -2313,7 +2313,7 @@ module.exports = CodeMirrorSpellChecker;
     if (!completion.options.hint) return;
 
     CodeMirror.signal(this, "startCompletion", this);
-    completion.update(true);
+    completion.update(false);
   });
 
   function Completion(cm, options) {
@@ -18484,7 +18484,11 @@ SimpleMDE.prototype.render = function(el) {
 
 	// Registering a new command to showMentions widget
 	CodeMirror.commands.showMentions = function(cm) {
-		CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint);
+		if(cm.state.completionActive) {
+			cm.state.completionActive.update(false);
+		} else {
+			CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint);
+		}
 	};
 
 	// Registering a new command to hideMentions widget
@@ -18509,13 +18513,17 @@ SimpleMDE.prototype.render = function(el) {
 		}
 		var curWord = curLine.slice(start, end);
 		var regex = new RegExp("^" + curWord, "i");
-		return {
+		var result = {
 			list: dictionary.filter(function(item) {
 				return item.match(regex);
 			}).sort(),
 			from: CodeMirror.Pos(cur.line, start),
 			to: CodeMirror.Pos(cur.line, end)
 		};
+		CodeMirror.on(result, "pick", function(completion) {
+			console.log(completion);
+		});
+		return result;
 	});
 
 	this.codemirror = CodeMirror.fromTextArea(el, {
