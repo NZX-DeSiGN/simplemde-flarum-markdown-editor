@@ -1,5 +1,5 @@
 {
-  "name": "simplemde",
+  "name": "simplemde-flarum",
   "version": "1.11.6",
   "description": "A simple, beautiful, and embeddable JavaScript Markdown editor. Features autosaving and spell checking.",
   "keywords": [
@@ -9,16 +9,15 @@
     "javascript",
     "wysiwyg"
   ],
-  "homepage": "https://github.com/NextStepWebs/simplemde-markdown-editor",
-  "main": "./src/js/simplemde.js",
+  "homepage": "https://github.com/NZX-DeSiGN/simplemde-flarum-markdown-editor",
+  "main": "./src/js/SimpleMDE.js",
   "license": "MIT",
   "company": "Next Step Webs, Inc.",
   "author": {
-    "name": "Wes Cossick",
-    "url": "http://www.WesCossick.com"
+    "name": "NZX-DeSiGN"
   },
   "bugs": {
-    "url": "https://github.com/NextStepWebs/simplemde-markdown-editor/issues"
+    "url": "https://github.com/NZX-DeSiGN/simplemde-flarum-markdown-editor/issues"
   },
   "dependencies": {
     "codemirror": "*",
@@ -43,6 +42,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/NextStepWebs/simplemde-markdown-editor"
+    "url": "https://github.com/NZX-DeSiGN/simplemde-flarum-markdown-editor"
   }
 }

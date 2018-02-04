@@ -1484,7 +1484,9 @@ SimpleMDE.prototype.render = function(el) {
 
 	// Registering a new command to showMentions widget
 	CodeMirror.commands.showMentions = function(cm) {
-		CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint, {completeSingle: false});
+		CodeMirror.showHint(cm, CodeMirror.hint.mentionsHint, {
+			completeSingle: false
+		});
 	};
 
 	// Registering a new command to hideMentions widget
