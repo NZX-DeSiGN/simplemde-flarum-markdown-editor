@@ -10,10 +10,7 @@ require("codemirror/addon/display/placeholder.js");
 require("codemirror/addon/selection/mark-selection.js");
 require("codemirror/mode/gfm/gfm.js");
 require("codemirror/mode/xml/xml.js");
-require("codemirror/mode/javascript/javascript.js");
-require("codemirror/addon/hint/javascript-hint.js");
 require("codemirror/addon/hint/show-hint.js");
-var CodeMirrorSpellChecker = require("codemirror-spell-checker");
 var marked = require("marked");
 
 
@@ -268,7 +265,7 @@ function toggleCodeBlock(editor) {
 	}
 
 	function token_state(token) {
-		// base goes an extra level deep when mode backdrops are used, e.g. spellchecker on
+		// base goes an extra level deep when mode backdrops are used
 		return token.state.base.base || token.state.base;
 	}
 
@@ -1466,21 +1463,12 @@ SimpleMDE.prototype.render = function(el) {
 		}
 	}, false);
 
-	var mode, backdrop;
-	if(options.spellChecker !== false) {
-		mode = "spell-checker";
-		backdrop = options.parsingConfig;
-		backdrop.name = "gfm";
-		backdrop.gitHubSpice = false;
 
-		CodeMirrorSpellChecker({
-			codeMirrorInstance: CodeMirror
-		});
-	} else {
-		mode = options.parsingConfig;
-		mode.name = "gfm";
-		mode.gitHubSpice = false;
-	}
+	var mode, backdrop;
+
+	mode = options.parsingConfig;
+	mode.name = "gfm";
+	mode.gitHubSpice = false;
 
 	// Registering a new command to showMentions widget
 	CodeMirror.commands.showMentions = function(cm) {
