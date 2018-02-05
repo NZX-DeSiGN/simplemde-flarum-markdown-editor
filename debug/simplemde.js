@@ -1,5 +1,5 @@
 /**
- * simplemde-flarum v1.11.6
+ * simplemde-flarum v1.11.6-flarum.1
  * Copyright Next Step Webs, Inc.
  * @link https://github.com/NZX-DeSiGN/simplemde-flarum-markdown-editor
  * @license MIT
@@ -13565,20 +13565,20 @@ var bindings = {
 };
 
 var shortcuts = {
-	"toggleBold": "Cmd-B",
-	"toggleItalic": "Cmd-I",
-	"drawLink": "Cmd-K",
-	"toggleHeadingSmaller": "Cmd-H",
-	"toggleHeadingBigger": "Shift-Cmd-H",
-	"cleanBlock": "Cmd-E",
-	"drawImage": "Cmd-Alt-I",
-	"toggleBlockquote": "Cmd-'",
-	"toggleOrderedList": "Cmd-Alt-L",
-	"toggleUnorderedList": "Cmd-L",
-	"toggleCodeBlock": "Cmd-Alt-C",
-	"togglePreview": "Cmd-P",
-	"toggleSideBySide": "F9",
-	"toggleFullScreen": "F11"
+	"toggleBold": app.translator.trans("xengine.forum.shortcut_bold"),
+	"toggleItalic": app.translator.trans("xengine.forum.shortcut_italic"),
+	"drawLink": app.translator.trans("xengine.forum.shortcut_draw_link"),
+	"toggleHeadingSmaller": app.translator.trans("xengine.forum.shortcut_heading_smaller"),
+	"toggleHeadingBigger": app.translator.trans("xengine.forum.shortcut_heading_bigger"),
+	"cleanBlock": app.translator.trans("xengine.forum.shortcut_clean_block"),
+	"drawImage": app.translator.trans("xengine.forum.shortcut_draw_image"),
+	"toggleBlockquote": app.translator.trans("xengine.forum.shortcut_blockquote"),
+	"toggleOrderedList": app.translator.trans("xengine.forum.shortcut_ordered_list"),
+	"toggleUnorderedList": app.translator.trans("xengine.forum.shortcut_unordered_list"),
+	"toggleCodeBlock": app.translator.trans("xengine.forum.shortcut_code_block"),
+	"togglePreview": app.translator.trans("xengine.forum.shortcut_preview"),
+	"toggleSideBySide": app.translator.trans("xengine.forum.shortcut_side_by_side"),
+	"toggleFullScreen": app.translator.trans("xengine.forum.shortcut_fullscreen")
 };
 
 var getBindingName = function(f) {
@@ -14592,58 +14592,58 @@ var toolbarBuiltInButtons = {
 		name: "bold",
 		action: toggleBold,
 		className: "fa fa-bold",
-		title: "Bold",
+		title: app.translator.trans("xengine.forum.bold"),
 		default: true
 	},
 	"italic": {
 		name: "italic",
 		action: toggleItalic,
 		className: "fa fa-italic",
-		title: "Italic",
+		title: app.translator.trans("xengine.forum.italic"),
 		default: true
 	},
 	"strikethrough": {
 		name: "strikethrough",
 		action: toggleStrikethrough,
 		className: "fa fa-strikethrough",
-		title: "Strikethrough"
+		title: app.translator.trans("xengine.forum.strikethrough")
 	},
 	"heading": {
 		name: "heading",
 		action: toggleHeadingSmaller,
 		className: "fa fa-header",
-		title: "Heading",
+		title: app.translator.trans("xengine.forum.heading"),
 		default: true
 	},
 	"heading-smaller": {
 		name: "heading-smaller",
 		action: toggleHeadingSmaller,
 		className: "fa fa-header fa-header-x fa-header-smaller",
-		title: "Smaller Heading"
+		title: app.translator.trans("xengine.forum.smaller_heading")
 	},
 	"heading-bigger": {
 		name: "heading-bigger",
 		action: toggleHeadingBigger,
 		className: "fa fa-header fa-header-x fa-header-bigger",
-		title: "Bigger Heading"
+		title: app.translator.trans("xengine.forum.bigger_heading")
 	},
 	"heading-1": {
 		name: "heading-1",
 		action: toggleHeading1,
 		className: "fa fa-header fa-header-x fa-header-1",
-		title: "Big Heading"
+		title: app.translator.trans("xengine.forum.big_heading")
 	},
 	"heading-2": {
 		name: "heading-2",
 		action: toggleHeading2,
 		className: "fa fa-header fa-header-x fa-header-2",
-		title: "Medium Heading"
+		title: app.translator.trans("xengine.forum.medium_heading")
 	},
 	"heading-3": {
 		name: "heading-3",
 		action: toggleHeading3,
 		className: "fa fa-header fa-header-x fa-header-3",
-		title: "Small Heading"
+		title: app.translator.trans("xengine.forum.small_heading")
 	},
 	"separator-1": {
 		name: "separator-1"
@@ -14652,34 +14652,34 @@ var toolbarBuiltInButtons = {
 		name: "code",
 		action: toggleCodeBlock,
 		className: "fa fa-code",
-		title: "Code"
+		title: app.translator.trans("xengine.forum.code")
 	},
 	"quote": {
 		name: "quote",
 		action: toggleBlockquote,
 		className: "fa fa-quote-left",
-		title: "Quote",
+		title: app.translator.trans("xengine.forum.quote"),
 		default: true
 	},
 	"unordered-list": {
 		name: "unordered-list",
 		action: toggleUnorderedList,
 		className: "fa fa-list-ul",
-		title: "Generic List",
+		title: app.translator.trans("xengine.forum.generic_list"),
 		default: true
 	},
 	"ordered-list": {
 		name: "ordered-list",
 		action: toggleOrderedList,
 		className: "fa fa-list-ol",
-		title: "Numbered List",
+		title: app.translator.trans("xengine.forum.numbered_list"),
 		default: true
 	},
 	"clean-block": {
 		name: "clean-block",
 		action: cleanBlock,
 		className: "fa fa-eraser fa-clean-block",
-		title: "Clean block"
+		title: app.translator.trans("xengine.forum.clean_block")
 	},
 	"separator-2": {
 		name: "separator-2"
@@ -14688,27 +14688,27 @@ var toolbarBuiltInButtons = {
 		name: "link",
 		action: drawLink,
 		className: "fa fa-link",
-		title: "Create Link",
+		title: app.translator.trans("xengine.forum.create_link"),
 		default: true
 	},
 	"image": {
 		name: "image",
 		action: drawImage,
 		className: "fa fa-picture-o",
-		title: "Insert Image",
+		title: app.translator.trans("xengine.forum.insert_image"),
 		default: true
 	},
 	"table": {
 		name: "table",
 		action: drawTable,
 		className: "fa fa-table",
-		title: "Insert Table"
+		title: app.translator.trans("xengine.forum.insert_table")
 	},
 	"horizontal-rule": {
 		name: "horizontal-rule",
 		action: drawHorizontalRule,
 		className: "fa fa-minus",
-		title: "Insert Horizontal Line"
+		title: app.translator.trans("xengine.forum.insert_horizontal_line")
 	},
 	"separator-3": {
 		name: "separator-3"
@@ -14717,21 +14717,21 @@ var toolbarBuiltInButtons = {
 		name: "preview",
 		action: togglePreview,
 		className: "fa fa-eye no-disable",
-		title: "Toggle Preview",
+		title: app.translator.trans("xengine.forum.toggle_preview"),
 		default: true
 	},
 	"side-by-side": {
 		name: "side-by-side",
 		action: toggleSideBySide,
 		className: "fa fa-columns no-disable no-mobile",
-		title: "Toggle Side by Side",
+		title: app.translator.trans("xengine.forum.toggle_side_by_side"),
 		default: true
 	},
 	"fullscreen": {
 		name: "fullscreen",
 		action: toggleFullScreen,
 		className: "fa fa-arrows-alt no-disable no-mobile",
-		title: "Toggle Fullscreen",
+		title: app.translator.trans("xengine.forum.toggle_fullscreen"),
 		default: true
 	},
 	"separator-4": {
@@ -14741,7 +14741,7 @@ var toolbarBuiltInButtons = {
 		name: "guide",
 		action: "https://simplemde.com/markdown-guide",
 		className: "fa fa-question-circle",
-		title: "Markdown Guide",
+		title: app.translator.trans("xengine.forum.markdown_guide"),
 		default: true
 	},
 	"separator-5": {
@@ -14751,13 +14751,13 @@ var toolbarBuiltInButtons = {
 		name: "undo",
 		action: undo,
 		className: "fa fa-undo no-disable",
-		title: "Undo"
+		title: app.translator.trans("xengine.forum.undo")
 	},
 	"redo": {
 		name: "redo",
 		action: redo,
 		className: "fa fa-repeat no-disable",
-		title: "Redo"
+		title: app.translator.trans("xengine.forum.redo")
 	}
 };
 
@@ -15005,7 +15005,7 @@ SimpleMDE.prototype.render = function(el) {
 		}
 	};
 
-	// This is a hint function with name as 'mentionsHint'. This function gets the list to be displayed in the mentions widget and performs filtering.	
+	// This is a hint function with name as 'mentionsHint'. This function gets the list to be displayed in the mentions widget and performs filtering.
 	CodeMirror.registerHelper("hint", "mentionsHint", function(editor) {
 		var dictionary = editor.options.hintList ? editor.options.hintList : [];
 		var cur = editor.getCursor(),
